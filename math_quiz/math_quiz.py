@@ -93,7 +93,7 @@ def math_quiz():
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(total_questions):
-        number1 = random_Integer(1, 10); number2 = random_Integer(1, 5.5); operator = random_Operator() #generating random functions for new quiz-questions
+        number1 = random_Integer(1, 10); number2 = random_Integer(1, 5); operator = random_Operator() #generating random functions for new quiz-questions
         PROBLEM, ANSWER = compute(number1, number2, operator)
         print(f"\nQuestion: {PROBLEM}")         #show the participant the exercise to solve
         useranswer = input("Your answer: ")
