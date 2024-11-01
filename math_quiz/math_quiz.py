@@ -41,7 +41,7 @@ def random_Operator() -> str:
     return random.choice(['+', '-', '*'])
 
 
-def compute(number1: int | float, number2: int | float, operator: str) -> (str, int):
+def compute(number1: int, number2: int, operator: str) -> (str, int):
     """
             Computes the given operator for the Integers number1 and number2
 
