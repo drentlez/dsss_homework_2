@@ -5,7 +5,6 @@ setup(
     version="1.2.3",
     packages=find_packages(),
     install_requires=[
-        "setuptools~=68.1.2"
     ],
     entry_points={
         "console_scripts": [
