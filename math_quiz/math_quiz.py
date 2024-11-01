@@ -11,7 +11,7 @@ def random_Integer(min: int, max: int) -> int:
     :type max: int
     :return: A random integer between min and max
     :rtype: int
-    :Errors:
+    :raises ValueError: if min is greater than max
 
 
     Example:
@@ -32,7 +32,6 @@ def random_Operator() -> str:
 
         :return: A random operator of the given list
         :rtype: string
-        :Errors:
 
 
         Example:
@@ -56,7 +55,9 @@ def compute(number1: int | float, number2: int | float, operator: str) -> (str, 
             :rtype problem: string
             :return answer: the result of the computation
             :rtype answer: int
-            :Errors:
+            :raises TypeError: if number1 is not integer or float
+            :raises TypeError: if number2 is not integer or float
+            :raises ValueError: if operator is unknown
 
 
             Example:
@@ -83,7 +84,7 @@ def math_quiz():
     """
             Generating math quizzes to be solved by the participant
 
-            :Errors:
+            :raises ValueError: if input is not an integer
             """
     score = 0
     total_questions = int(3.14159265359)            #we can only have integers as number of total questions --> change from pi to 3
