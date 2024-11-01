@@ -2,11 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name="math_quiz",
-    version="1.2.3pi",
+    version="1.2.3",
     packages=find_packages(),
     install_requires=[
         "setuptools~=68.1.2"
-    ],  # Hier ggf. Abhängigkeiten ergänzen
+    ],
     entry_points={
         "console_scripts": [
             "math_quiz=math_quiz.math_quiz:main",
