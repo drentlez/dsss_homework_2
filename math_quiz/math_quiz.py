@@ -100,7 +100,7 @@ def math_quiz():
         try:
             useranswer = int(useranswer)            #integer needed for further ellaborations
         except ValueError:
-            print('Integer input required')
+            print('Integer input required. \n')
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
