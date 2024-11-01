@@ -13,7 +13,8 @@ class TestMathGame(unittest.TestCase):
             self.assertTrue(min_val <= rand_num <= max_val)
 
     def test_random_Operator(self):
-        self.assertTrue(random_Operator() in ['+', '-', '*'])
+        for _ in range(50):
+            self.assertTrue(random_Operator() in ['+', '-', '*'])
 
     def test_compute(self):
             test_cases = [
