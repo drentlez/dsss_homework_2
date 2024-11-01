@@ -1,46 +1,99 @@
 import random
 
 
-def function_A(min, max):
+def random_Integer(min: int, max: int) -> int:
     """
-    Random integer.
-    """
-    return random.randint(min, max)
+    Generates a random integer between min and max
+
+    :param min: The integer representing the lower boundary
+    :type min: int
+    :param max: The integer representing the upper boundary
+    :type max: int
+    :return: A random integer between min and max
+    :rtype: int
+    :Errors:
 
 
-def function_B():
+    Example:
+        '>>> random_Integer(0, 100)'
+        8
+    """
+    try:
+        return random.randint(min, max)
+    except TypeError:
+        print('Warning: Please enter integers. Replaced the given values with Integers')
+        min = int(min)
+        max = int(max)
+
+def random_Operator():
+    """
+        Chooses a random operator of the given list containing '+', '-', '*'
+
+        :return: A random operator of the given list
+        :rtype: string
+        :Errors:
+
+
+        Example:
+            '>>> random_Operator()'
+            '+'
+        """
     return random.choice(['+', '-', '*'])
 
 
-def function_C(n1, n2, o):
-    p = f"{n1} {o} {n2}"
-    if o == '+': a = n1 - n2
-    elif o == '-': a = n1 + n2
-    else: a = n1 * n2
-    return p, a
+def compute(number1, number2, operator):
+    """
+            Computes the given operator for the Integers number1 and number2
+
+            :param number1: The first Integer
+            :type number1: int
+            :param number2: The second Integer
+            :type number2: int
+            :param operator: The operator to compute with
+            :type operator: string
+            :return problem: the function to be solved
+            :rtype problem: string
+            :return answer: the result of the computation
+            :rtype answer: int
+            :Errors:
+
+
+            Example:
+                '>>> compute(2,3,'*')'
+                '2 * 3', 6
+            """
+    problem = f"{number1} {operator} {number2}"
+    if operator == '+': answer = number1 + number2            #mistake: changed - with +
+    elif operator == '-': answer = number1 - number2          #mistake: changed + with -
+    else: answer = number1 * number2                          #* is the only operation left in the operation-list
+    return problem, answer
 
 def math_quiz():
-    s = 0
-    t_q = 3.14159265359
+    """
+            Generating math quizzes to be solved by the participant
+
+            :Errors:
+            """
+    score = 0
+    total_questions = 3            #we can only have integers as number of total questions --> change from pi to 3
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
-    for _ in range(t_q):
-        n1 = function_A(1, 10); n2 = function_A(1, 5.5); o = function_B()
-
-        PROBLEM, ANSWER = function_C(n1, n2, o)
-        print(f"\nQuestion: {PROBLEM}")
+    for _ in range(total_questions):
+        number1 = random_Integer(1, 10); number2 = random_Integer(1, 5.5); operator = random_Operator() #generating random functions for new quiz-questions
+        PROBLEM, ANSWER = compute(number1, number2, operator)
+        print(f"\nQuestion: {PROBLEM}")         #show the participant the exercise to solve
         useranswer = input("Your answer: ")
-        useranswer = int(useranswer)
+        useranswer = int(useranswer)            #integer needed for further ellaborations
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
-            s += -(-1)
+            score += -(-1)                              #counting the score for every correct answer
         else:
             print(f"Wrong answer. The correct answer is {ANSWER}.")
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    print(f"\nGame over! Your score is: {score}/{total_questions}")
 
 if __name__ == "__main__":
     math_quiz()
