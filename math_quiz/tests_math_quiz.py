@@ -13,10 +13,12 @@ class TestMathGame(unittest.TestCase):
             self.assertTrue(min_val <= rand_num <= max_val)
 
     def test_random_Operator(self):
+        # Test if the randomly selected operator is valid 50 times
         for _ in range(50):
             self.assertTrue(random_Operator() in ['+', '-', '*'])
 
     def test_compute(self):
+        # Test for all test cases whether the results are computed and represented correctly
             test_cases = [
                 (5, 2, '+', '5 + 2', 7),
                 (8, 7, '*', '8 * 7', 56),
